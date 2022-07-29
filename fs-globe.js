@@ -3,6 +3,11 @@
  * @param {url} param
  */
 
+// Removes invisible Webflow elements to prevent errors in three.js
+const invisibleItems = document.querySelectorAll('.w-condition-invisible');
+
+invisibleItems.forEach(item => item.remove());
+
 function FsGlobe() {
   const mainContainer = document.querySelector(
     "[fs-3dglobe-element='container']"
@@ -222,7 +227,7 @@ function FsGlobe() {
       // move the elem to that position
       elem.style.transform = `translate(-50%, -50%) translate(${x}px,${y}px)`;
 
-      //   // set the zIndex for sorting
+      // set the zIndex for sorting
       // elem.style.zIndex = ((-tempV.z * 0.5 + 0.5) * 100000) | 0;
     }
   }
