@@ -60,6 +60,14 @@ function FsGlobe() {
   let renderRequested = false;
   let animationFrame;
 
+  function removeInvisibleItems() {
+    const invisibleItems = document.querySelectorAll('.w-condition-invisible');
+
+    invisibleItems.forEach(item => item.remove());
+  }
+
+  removeInvisibleItems();
+
   const team = fetchDataFromCollection(
     "[fs-3dglobe-element='list'] .w-dyn-item"
   );
